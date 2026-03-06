@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kagoshima New Cafe | 2026.08 OPEN</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Sawarabi+Mincho&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green: #6B8E23;
+            --beige: #F5F5DC;
+            --soft-white: #FAF9F6;
+            --text: #333333;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Sawarabi Mincho', serif;
+            background-color: var(--soft-white);
+            color: var(--text);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+        header {
+            position: fixed; top: 0; left: 0; width: 100%; height: 80px;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 5%; z-index: 1000; transition: 0.4s;
+        }
+        header.scrolled { background: rgba(250, 249, 246, 0.98); box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .logo { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; color: var(--green); font-weight: 500; letter-spacing: 0.1em; }
+        nav ul { display: flex; list-style: none; gap: 20px; }
+        nav a { text-decoration: none; color: var(--text); font-family: 'Montserrat', sans-serif; font-size: 0.75rem; }
+        section { 
+            padding: 100px 5%; 
+            max-width: 1000px; 
+            margin: 0 auto; 
+            opacity: 0; transform: translateY(30px); transition: 1s; 
+        }
+        section.visible { opacity: 1; transform: translateY(0); }
+        h2 { font-size: 1.6rem; text-align: center; margin-bottom: 50px; font-weight: 400; position: relative; }
+        h2::after { content: ""; display: block; width: 40px; height: 1px; background: var(--green); margin: 20px auto; }
+        .hero {
+            height: 100vh; max-width: 100%; padding: 0; margin: 0;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; opacity: 1; transform: none;
+        }
+        .hero h1 { font-size: clamp(1.5rem, 5vw, 2.5rem); letter-spacing: 0.2em; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.6); padding-bottom: 15px; margin-bottom: 15px; width: fit-content; max-width: 90%; }
+        .menu-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 30px; 
+            justify-content: center; 
+            max-width: 800px; 
+            margin: 0 auto;
+        }
+        .menu-item { background: white; padding: 40px 30px; border: 1px solid #f0f0f0; text-align: center; border-radius: 4px; }
+        .menu-price { font-family: 'Montserrat', sans-serif; color: var(--green); display: block; margin-top: 10px; font-weight: 500; }
+        .map-area { width: 100%; height: 350px; background: #eee; display: flex; align-items: center; justify-content: center; filter: grayscale(1); border-radius: 4px; }
+        .contact-box { background: var(--beige); padding: 60px 20px; text-align: center; border-radius: 4px; }
+        .btn { display: inline-block; padding: 16px 50px; background: var(--green); color: white; text-decoration: none; border-radius: 50px; margin-top: 20px; }
+        footer { padding: 40px; text-align: center; background: #f7f7f7; font-size: 0.75rem; color: #999; }
+        @media (max-width: 768px) {
+            nav { display: none; }
+            section { padding: 60px 20px; }
+        }
+    </style>
+</head>
+<body>
+<header id="header">
+    <div class="logo">KAGOSHIMA CAFE</div>
+    <nav>
+        <ul>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#menu">MENU</a></li>
+            <li><a href="#access">ACCESS</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <section class="hero">
+        <h1>日常を忘れる、静かな時間。</h1>
+        <p>COMING IN 2026.08</p>
+    </section>
+    <section id="about">
+        <h2>店舗について</h2>
+        <p style="text-align: center;">鹿児島の大地で育まれた素材と、ゆっくりと流れる時間を提供します。</p>
+    </section>
+    <section id="menu">
+        <h2>メニュー</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <h3>季節のブレンド</h3>
+                <span class="menu-price">¥550</span>
+            </div>
+            <div class="menu-item">
+                <h3>自家製レモンスカッシュ</h3>
+                <span class="menu-price">¥600</span>
+            </div>
+        </div>
+    </section>
+    <section id="access">
+        <h2>店舗の場所</h2>
+        <div class="map-area">Google Map 準備中</div>
+    </section>
+    <section id="contact">
+        <div class="contact-box">
+            <h2>お問い合わせ</h2>
+            <a href="mailto:test@example.com" class="btn">メールを送る</a>
+        </div>
+    </section>
+</main>
+<footer>&copy; 2026 Kagoshima New Cafe Project</footer>
+<script>
+    window.addEventListener('scroll', () => {
+        const header = document.getElementById('header');
+        if (window.scrollY > 50) header.classList.add('scrolled');
+        else header.classList.remove('scrolled');
+    });
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('section').forEach(section => observer.observe(section));
+</script>
+</body>
+</html>
