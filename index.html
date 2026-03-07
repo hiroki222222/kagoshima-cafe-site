@@ -59,27 +59,29 @@
         .contact-box { background: var(--beige); padding: 60px 20px; text-align: center; border-radius: 4px; }
         .btn { display: inline-block; padding: 16px 50px; background: var(--green); color: white; text-decoration: none; border-radius: 50px; margin-top: 20px; }
         footer { padding: 40px; text-align: center; background: #f7f7f7; font-size: 0.75rem; color: #999; }
+
+        /* --- ここから追加：スマホ最適化（改行とボタン） --- */
+        .sp-only {
+            display: none; /* PCでは改行しない */
+        }
+
         @media (max-width: 768px) {
             nav { display: none; }
             section { padding: 60px 20px; }
-        }
-
-    /* --- ここから追加 --- */
-        .sp-only {
-            display: none; /* 基本（PC）は改行を表示しない */
-        }
-
-        @media (max-width: 768px) {
             .sp-only {
-                display: block; /* スマホ（画面幅768px以下）の時だけ改行する */
+                display: block; /* スマホで改行を有効にする */
             }
             .hero h1 {
-                font-size: 1.8rem; /* スマホで文字が重ならないよう少しサイズ調整 */
-                line-height: 1.5;   /* 行の間隔を整える */
+                font-size: 1.8rem; 
+                line-height: 1.5;
+            }
+            /* ボタンの中身を1行にする魔法の命令 */
+            .btn {
+                white-space: nowrap; /* これで絶対に改行しません */
+                padding: 16px 30px;  /* スマホ用に左右の余白を少し調整 */
             }
         }
         /* --- ここまで追加 --- */
-    </style>
     </style>
 </head>
 <body>
