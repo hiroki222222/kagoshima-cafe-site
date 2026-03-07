@@ -63,6 +63,23 @@
             nav { display: none; }
             section { padding: 60px 20px; }
         }
+
+    /* --- ここから追加 --- */
+        .sp-only {
+            display: none; /* 基本（PC）は改行を表示しない */
+        }
+
+        @media (max-width: 768px) {
+            .sp-only {
+                display: block; /* スマホ（画面幅768px以下）の時だけ改行する */
+            }
+            .hero h1 {
+                font-size: 1.8rem; /* スマホで文字が重ならないよう少しサイズ調整 */
+                line-height: 1.5;   /* 行の間隔を整える */
+            }
+        }
+        /* --- ここまで追加 --- */
+    </style>
     </style>
 </head>
 <body>
