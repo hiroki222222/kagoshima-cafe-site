@@ -82,12 +82,82 @@
             }
         }
         /* --- ここまで追加 --- */
+        /* --- ハンバーガーメニューのデザイン --- */
+        .hamburger {
+            display: none; /* PCでは出さない */
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            position: relative;
+            z-index: 2000;
+            border: 1px solid var(--green);
+            border-radius: 50%;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 20px;
+            height: 1px;
+            background: var(--green);
+            position: absolute;
+            left: 15px;
+            transition: 0.3s;
+        }
+
+        /* 三本線の位置調整 */
+        .hamburger span:nth-child(1) { top: 18px; }
+        .hamburger span:nth-child(2) { top: 25px; }
+        .hamburger span:nth-child(3) { top: 32px; }
+
+        @media (max-width: 768px) {
+            .hamburger { 
+                display: block; /* スマホの時だけ表示 */
+            }
+
+            header {
+                padding: 0 20px; /* スマホでの端の余白調整 */
+            }
+
+            #nav {
+                position: fixed;
+                top: 0;
+                right: -100%; /* 最初は画面の右側に隠しておく */
+                width: 80%;
+                height: 100vh;
+                background: rgba(250, 249, 246, 0.98);
+                transition: 0.5s;
+                padding-top: 100px;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.05);
+            }
+
+            #nav.active {
+                right: 0; /* activeがつくと画面内に入ってくる */
+            }
+
+            #nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 40px;
+            }
+            
+            /* ボタンが「×」に変わるアニメーション */
+            .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+            .hamburger.active span:nth-child(2) { opacity: 0; }
+            .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+        }
     </style>
 </head>
 <body>
 <header id="header">
     <div class="logo">KAGOSHIMA CAFE</div>
-    <nav>
+    
+    <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <nav id="nav">
         <ul>
             <li><a href="#about">ABOUT</a></li>
             <li><a href="#menu">MENU</a></li>
